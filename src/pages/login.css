@@ -12,7 +12,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, #aee1f9, #e3f2fd);
+  background: linear-gradient(to top, #9ddbf8, #e4f2fb);
   z-index: -1;
   overflow: hidden;
 }
@@ -93,31 +93,53 @@
   width: 320px;
   position: absolute;
   top: 40%;
-  left: -150px;
-  animation: flyPlane 30s linear infinite;
+  left: -320px;
+  animation: flyPlane 20s linear infinite 5s; 
 }
 
 @keyframes flyPlane {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(1deg);
   }
   100% {
-    transform: translate(160vw, -60vh) rotate(10deg);
+    transform: translate(160vw, -60vh) rotate(-20deg);
   }
 }
 
+.flying-plane {
+  position: absolute;
+  top: 300px;
+  right: -500px;
+  width: 300px;
+  z-index: 0;
+  animation: flyDiagonal 20s linear infinite 20s;
+}
+
+@keyframes flyDiagonal {
+  0% {
+    top: 50px;
+    right: -500px;
+    transform: rotate(-30deg);
+  }
+  100% {
+    top: 70%;
+    right: 110%;
+    transform: rotate(-3deg);
+  }
+}
+
+
 /* Login Box Styling */
 .login-box {
-  background-color: rgba(255, 255, 255, 0.2); /* light transparent white */
-  backdrop-filter: blur(10px); /* blur effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-
-  padding: 100px;
+  background-color: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
+  padding: 80px;
   border-radius: 15px;
   box-shadow: inset 0 10px 25px rgba(0, 0, 0, 0.2);
   border: rgba(0, 0, 0, 0.2) solid 1px;
   width: 90%;
-  max-width: 400px;
+  max-width: 600px;
   text-align: center;
   margin: auto;
   position: relative;
@@ -129,16 +151,19 @@
 }
 
 .login-box h2 {
-  margin-bottom: 20px;
-  color: #4a4a8a;
+  margin-bottom: 80px;
+  font-size: 50px;
+  color: transparent;
+  -webkit-text-stroke: #0485f6 2px;
 }
 
 .login-box input {
   width: 100%;
   padding: 12px;
-  margin: 10px 0;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  background-color: transparent;
   font-size: 14px;
 }
 
@@ -158,3 +183,5 @@
 .login-box button:hover {
   background-color: #3a3a7a;
 }
+
+
