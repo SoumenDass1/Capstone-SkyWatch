@@ -1,187 +1,468 @@
 .login-wrapper {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #72c4fa 0%, #1a59f7 100%);
+  overflow: hidden;
 }
 
-/* Sky Background */
 .sky {
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, #9ddbf8, #e4f2fb);
-  z-index: -1;
-  overflow: hidden;
+  z-index: 1;
+  color: #002fff;
 }
 
-/* Clouds */
+/* Animation */
+@keyframes float {
+  0% {
+    transform: translateX(-200px);
+  }
+
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+/* Base cloud */
 .cloud {
+  position: relative;
+  /* This is important for text stacking */
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: float 40s linear infinite;
+  will-change: transform;
+  z-index: 2;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
   position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.9;
-  filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  z-index: -1;
 }
 
 .cloud1 {
-  width: 180px;
+  width: 160px;
+  height: 80px;
+  top: 18%;
+  left: -500px;
+  animation-delay: 0s;
+}
+
+.cloud1::before {
+  width: 100px;
   height: 100px;
-  top: 15%;
-  left: -300px;
-  animation: cloudMove 60s linear infinite;
+  top: -50px;
+  left: 20px;
+}
+
+.cloud1::after {
+  width: 120px;
+  height: 80px;
+  top: -30px;
+  right: 30px;
 }
 
 .cloud2 {
-  width: 150px;
+  width: 130px;
+  height: 65px;
+  top: 10%;
+  left: -1200px;
+  animation-delay: -5s;
+}
+
+.cloud2::before {
+  width: 90px;
   height: 90px;
-  top: 45%;
-  left: -250px;
-  animation: cloudMove 70s linear infinite;
+  top: -45px;
+  left: 18px;
+}
+
+.cloud2::after {
+  width: 100px;
+  height: 70px;
+  top: -28px;
+  right: 25px;
 }
 
 .cloud3 {
-  width: 220px;
-  height: 110px;
-  top: 10%;
-  left: -350px;
-  animation: cloudMove 80s linear infinite;
+  width: 110px;
+  height: 55px;
+  top: 35%;
+  left: -800px;
+  animation-delay: -10s;
+}
+
+.cloud3::before {
+  width: 70px;
+  height: 70px;
+  top: -35px;
+  left: 15px;
+}
+
+.cloud3::after {
+  width: 85px;
+  height: 55px;
+  top: -22px;
+  right: 20px;
 }
 
 .cloud4 {
-  width: 300px;
-  height: 95px;
-  top: 50%;
-  left: -400px;
-  animation: cloudMove 75s linear infinite;
-}
-.cloud5 {
-  width: 190px;
-  height: 95px;
-  top: 45%;
-  left: -400px;
-  animation: cloudMove 50s linear infinite;
-}
-.cloud6 {
-  width: 100px;
-  height: 95px;
-  top: 30%;
-  left: -400px;
-  animation: cloudMove 40s linear infinite;
-}
-.cloud7 {
-  width: 200px;
-  height: 95px;
-  top: 65%;
-  left: 10px;
-  animation: cloudMove 30s linear infinite;
+  width: 90px;
+  height: 45px;
+  top: 55%;
+  left: -150px;
+  animation-delay: -15s;
 }
 
-@keyframes cloudMove {
+.cloud4::before {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 12px;
+}
+
+.cloud4::after {
+  width: 65px;
+  height: 45px;
+  top: -18px;
+  right: 18px;
+}
+
+.cloud5 {
+  width: 180px;
+  height: 90px;
+  top: 5%;
+  left: -600px;
+  animation-delay: -20s;
+}
+
+.cloud5::before {
+  width: 120px;
+  height: 120px;
+  top: -60px;
+  left: 25px;
+}
+
+.cloud5::after {
+  width: 140px;
+  height: 90px;
+  top: -35px;
+  right: 35px;
+}
+
+.cloud6 {
+  width: 100px;
+  height: 50px;
+  top: 70%;
+  left: -400px;
+  animation-delay: -25s;
+}
+
+.cloud6::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 10px;
+}
+
+.cloud6::after {
+  width: 70px;
+  height: 50px;
+  top: -20px;
+  right: 15px;
+}
+
+/* Cloud 7 - Big & bottom right */
+.cloud7 {
+  width: 150px;
+  height: 75px;
+  top: 75%;
+  left: -700px;
+  animation-delay: -30s;
+}
+
+.cloud7::before {
+  width: 95px;
+  height: 95px;
+  top: -48px;
+  left: 18px;
+}
+
+.cloud7::after {
+  width: 110px;
+  height: 75px;
+  top: -30px;
+  right: 28px;
+}
+
+/* Cloud 8 - Medium high */
+.cloud8 {
+  width: 120px;
+  height: 60px;
+  top: -50%;
+  left: -350px;
+  animation-delay: -32s;
+}
+
+.cloud8::before {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 15px;
+}
+
+.cloud8::after {
+  width: 90px;
+  height: 60px;
+  top: -25px;
+  right: 20px;
+}
+
+/* Cloud 9 - Small mid */
+.cloud9 {
+  width: 100px;
+  height: 50px;
+  top: 45%;
+  left: -470px;
+  animation-delay: -36s;
+}
+
+.cloud9::before {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: 12px;
+}
+
+.cloud9::after {
+  width: 70px;
+  height: 50px;
+  top: -18px;
+  right: 15px;
+}
+
+@keyframes float {
   0% {
     transform: translateX(0);
   }
+
   100% {
-    transform: translateX(160vw);
+    transform: translateX(200vw);
   }
 }
 
-/* Plane (Image) */
 .plane {
-  width: 320px;
   position: absolute;
-  top: 40%;
-  left: -320px;
-  animation: flyPlane 20s linear infinite 5s; 
-}
-
-@keyframes flyPlane {
-  0% {
-    transform: translate(0, 0) rotate(1deg);
-  }
-  100% {
-    transform: translate(160vw, -60vh) rotate(-20deg);
-  }
+  width: 310px;
+  top: 70%;
+  left: -300px;
+  animation: takeoff 10s linear infinite;
+  z-index: 2;
 }
 
 .flying-plane {
   position: absolute;
-  top: 300px;
-  right: -500px;
   width: 300px;
-  z-index: 0;
-  animation: flyDiagonal 20s linear infinite 20s;
+  top: 0%;
+  right: -300px;
+  animation: landing 10s linear infinite 6s;
+  z-index: 2;
 }
 
-@keyframes flyDiagonal {
+@keyframes takeoff {
   0% {
-    top: 50px;
-    right: -500px;
-    transform: rotate(-30deg);
+    transform: translate(0, 0) rotate(0deg);
   }
+
+  25% {
+    transform: translate(45vw, -20vh) rotate(-5deg);
+  }
+
+  50% {
+    transform: translate(90vw, -40vh) rotate(-10deg);
+  }
+
+  75% {
+    transform: translate(135vw, -60vh) rotate(-15deg);
+  }
+
   100% {
-    top: 70%;
-    right: 110%;
-    transform: rotate(-3deg);
+    transform: translate(150vw, -80vh) rotate(-10deg);
+  }
+}
+
+@keyframes landing {
+  0% {
+    transform: translate(0, 0) rotate(-10deg);
+  }
+
+  20% {
+    transform: translate(-30vw, 10vh) rotate(-15deg);
+  }
+
+  40% {
+    transform: translate(-60vw, 20vh) rotate(-18deg);
+  }
+
+  60% {
+    transform: translate(-90vw, 30vh) rotate(-15deg);
+  }
+
+  80% {
+    transform: translate(-120vw, 40vh) rotate(-10deg);
+  }
+
+  100% {
+    transform: translate(-150vw, 50vh) rotate(-5deg);
   }
 }
 
 
-/* Login Box Styling */
 .login-box {
-  background-color: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px); 
-  padding: 80px;
-  border-radius: 15px;
-  box-shadow: inset 0 10px 25px rgba(0, 0, 0, 0.2);
-  border: rgba(0, 0, 0, 0.2) solid 1px;
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-  margin: auto;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: inset 0 20px 40px rgb(2, 23, 126);
+  z-index: 10;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  display: grid;
-  place-items: center;
-  z-index: 1;
+  border: 1px solid rgb(0, 34, 207);
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .login-box h2 {
-  margin-bottom: 80px;
-  font-size: 50px;
-  color: transparent;
-  -webkit-text-stroke: #0485f6 2px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .login-box input {
   width: 100%;
-  padding: 12px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: transparent;
-  font-size: 14px;
+  padding: 15px;
+  margin: 10px 0;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #fff;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.login-box input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .login-box button {
   width: 100%;
-  padding: 12px;
-  background-color: #4a4a8a;
-  color: white;
+  padding: 15px;
+  margin: 20px 0 10px;
+  background: linear-gradient(150deg, #667eea, #764ba2);
+  color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.3s ease;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-box button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
 }
 
 .login-box button:hover {
-  background-color: #3a3a7a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 }
 
+.login-box button:hover::before {
+  left: 100%;
+}
 
+.signup-link {
+  cursor: pointer;
+  color: #002fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+
+  .plane,
+  .flying-plane {
+    width: 40px;
+  }
+
+  .cloud {
+    transform: scale(0.8);
+  }
+
+  .login-box {
+    padding: 30px;
+    max-width: 350px;
+  }
+
+  .login-box h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 25px 20px;
+    margin: 10px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+  }
+
+  .login-box input,
+  .login-box button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
