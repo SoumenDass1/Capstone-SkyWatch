@@ -1,0 +1,84 @@
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.flight-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+  gap: 2rem;
+}
+
+.flight-card-front, .flight-card-back {
+  height: 200px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.flight-card-front {
+  background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+  color: white;
+  cursor: pointer;
+}
+
+.flight-card-back {
+  background: linear-gradient(135deg, #4ca1af 0%, #2c3e50 100%);
+  color: white;
+}
+
+.flight-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.flight-route {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.flight-status {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.flight-status.on-time {
+  background-color: #2ecc71;
+}
+
+.flight-status.delayed {
+  background-color: #f39c12;
+}
+
+.flight-status.cancelled {
+  background-color: #e74c3c;
+}
+
+.flight-status.boarding {
+  background-color: #3498db;
+}
+
+.flight-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.detail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail-label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}

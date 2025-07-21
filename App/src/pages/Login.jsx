@@ -15,10 +15,9 @@ const Login = ({ onLogin }) => {
       return
     }
     
-    // Simulate login (replace with actual authentication)
     setTimeout(() => {
       onLogin()
-      navigate('/') // Redirect to dashboard after login
+      navigate('/') 
     }, 500)
   }
 
