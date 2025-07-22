@@ -13,7 +13,6 @@
 .flight-card-front, .flight-card-back {
   height: 200px;
   padding: 1.5rem;
-  border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
